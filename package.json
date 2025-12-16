@@ -9,18 +9,6 @@
         "test": "ng test",
         "lint": "ng lint"
     },
-    "prettier": {
-        "printWidth": 120,
-        "singleQuote": true,
-        "overrides": [
-            {
-                "files": "*.html",
-                "options": {
-                    "parser": "angular"
-                }
-            }
-        ]
-    },
     "private": true,
     "packageManager": "pnpm@10.24.0",
     "dependencies": {
@@ -50,6 +38,7 @@
         "eslint": "^9.39.1",
         "jsdom": "^27.1.0",
         "postcss": "^8.5.3",
+        "prettier": "3.7.4",
         "tailwindcss": "^4.1.12",
         "typescript": "~5.9.2",
         "typescript-eslint": "8.46.4",

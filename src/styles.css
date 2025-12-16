@@ -2,7 +2,9 @@
 
 @import "tailwindcss";
 
-@plugin "daisyui";
+@plugin "daisyui" {
+    exclude: rootscrollgutter;
+}
 
 @theme {
     --color-*: initial;
