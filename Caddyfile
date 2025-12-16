@@ -4,7 +4,7 @@
 
 :80 {
     root * /srv
-    encode gzip zstd
+    encode zstd br gzip
 
     try_files {path} {path} .html {path} / /index.html
 
