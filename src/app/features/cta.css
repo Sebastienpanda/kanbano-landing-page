@@ -1,0 +1,87 @@
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-content {
+    margin-top: 13px;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 h4, .inf-main_5053f99d12400ffb9eebe6992bf56e82 span, .inf-main_5053f99d12400ffb9eebe6992bf56e82 label, .inf-main_5053f99d12400ffb9eebe6992bf56e82 input, .inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-submit, .inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-success p a {
+    color: #555;
+    font-size: 14px;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 h4 {
+    font-size: 18px;
+    margin: 0px 0px 13px 0px;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 h4, .inf-main_5053f99d12400ffb9eebe6992bf56e82 label {
+    font-weight: bold;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-input {
+    margin-bottom: 7px;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 label {
+    display: block;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 input {
+    border: 1px solid #E9E9E9;
+    color: #999999;
+    height: 35px;
+    padding-left: 7px;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-input.inf-error label, .inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-input.inf-error span.inf-message {
+    color: #cc0033;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-input.inf-error input {
+    border: 1px solid #cc0033;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-input input {
+    width: 100%;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-input.inf-error span.inf-message {
+    display: block;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-submit {
+    text-align: right;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-submit input {
+    background-color: #7BACA8;
+    border: none;
+    color: #555;
+    font-weight: normal;
+    height: auto;
+    padding: 7px;
+}
+
+.inf-main_5053f99d12400ffb9eebe6992bf56e82 .inf-submit input.disabled {
+    opacity: 0.4;
+}
+
+.inf-btn {
+    background-color: white;
+    border: medium none;
+    border-radius: 2px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.24);
+    color: rgb(85, 85, 85);
+    display: inline-block;
+    font-weight: normal;
+    height: auto;
+    line-height: 1em;
+    padding: 7px;
+}
+
+.inf-rgpd {
+    color: #555;
+    margin: 25px 0px 15px 0px;
+}
+
+.altcha-label span {
+    color: #555
+}
