@@ -1,16 +1,5 @@
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    Component,
-    CUSTOM_ELEMENTS_SCHEMA,
-    inject,
-} from '@angular/core';
-import {
-    FormControl,
-    FormGroup,
-    ReactiveFormsModule,
-    Validators,
-} from '@angular/forms';
+import { AfterViewInit, ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -83,7 +72,7 @@ export class Cta implements AfterViewInit {
                     } else {
                         toast.error("Une erreur s'est produite", {
                             description:
-                                errorMessage || 'Veuillez réessayer plus tard',
+                                errorMessage || 'Veuillez réessaye plus tard',
                         });
                         console.error(err);
                     }

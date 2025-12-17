@@ -5,6 +5,7 @@ services:
             dockerfile: ./Dockerfile
             cache_from:
                 - node:24-alpine
+                - caddy:2-alpine
         container_name: kanbano
         labels:
             - "traefik.enable=true"
