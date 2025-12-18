@@ -10,7 +10,7 @@ export class SendEmailService {
 
     sendEmail(email: string): Observable<{ message: string }> {
         return this.http.post<{ message: string }>(
-            'http://localhost:3000/api/verify-email/send',
+            'https://api-newsletters.kanbano.fr/api/verify-email/send',
             { email },
         );
     }

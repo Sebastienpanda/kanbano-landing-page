@@ -1,12 +1,12 @@
 @if (isOpen()) {
     <dialog class="modal modal-open">
         <div class="modal-box">
-            <h3 class="text-lg font-bold">Vérification de votre inscription</h3>
-
+            @if (verificationStatus() === 'success') {
+                <h3 class="text-lg font-bold">Bienvenue dans la waitlist Kanbano</h3>
+            } @else {
+                <h3 class="text-lg font-bold">Recevoir un nouveau lien de vérification</h3>
+            }
             @if (isLoading()) {
-                <div class="py-8 flex justify-center">
-                    <span class="loading loading-spinner loading-lg"></span>
-                </div>
                 <p class="text-center text-sm text-base-content/70">
                     Vérification en cours...
                 </p>
@@ -28,41 +28,43 @@
                     </svg>
                     <span>{{ message() }}</span>
                 </div>
-            } @else if (verificationStatus() === 'info') {
-                <div class="alert alert-info mt-4">
-                    <svg
-                        aria-hidden="true"
-                        class="h-6 w-6 shrink-0 stroke-current"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        />
-                    </svg>
-                    <span>{{ message() }}</span>
-                </div>
             } @else if (verificationStatus() === 'error') {
-                <div class="alert alert-error mt-4">
-                    <svg
-                        aria-hidden="true"
-                        class="h-6 w-6 shrink-0 stroke-current"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
+                <div class="mt-6 space-y-4">
+                    <p class="text-sm text-base-content/70">
+                        Entrez votre email pour recevoir un nouveau lien de vérification
+                    </p>
+                    <form
+                        (ngSubmit)="resendToken()"
+                        [formGroup]="resendForm"
+                        class="space-y-4"
                     >
-                        <path
-                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                        />
-                    </svg>
-                    <span>{{ message() }}</span>
+                        <div class="flex flex-col gap-4">
+                            <label class="label" for="resendEmail">
+                                <span class="label-text">Adresse email</span>
+                            </label>
+                            <input
+                                class="input input-bordered w-full"
+                                formControlName="email"
+                                id="resendEmail"
+                                placeholder="votre@email.fr"
+                                type="email"
+                            />
+                            <app-form-error [control]="resendForm.controls.email"/>
+                        </div>
+                        <button
+                            [class]="resendForm.invalid || isResending() ? 'btn-disabled' : 'btn-primary'"
+                            [disabled]="resendForm.invalid || isResending()"
+                            class="btn btn-block"
+                            type="submit"
+                        >
+                            @if (isResending()) {
+                                <span class="loading loading-spinner loading-sm"></span>
+                                Envoi en cours...
+                            } @else {
+                                Renvoyer un nouveau token
+                            }
+                        </button>
+                    </form>
                 </div>
             }
 

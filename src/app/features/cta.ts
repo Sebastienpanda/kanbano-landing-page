@@ -1,11 +1,22 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    CUSTOM_ELEMENTS_SCHEMA,
+    inject,
+} from '@angular/core';
+import {
+    FormControl,
+    FormGroup,
+    ReactiveFormsModule,
+    Validators,
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import { SendEmailService } from '../services/send-email.service';
 import { toast } from 'ngx-sonner';
+import { FormError } from '../shared/ui/form-error';
 
 type EmailForm = {
     email: FormControl<string>;
@@ -13,13 +24,13 @@ type EmailForm = {
 
 @Component({
     selector: 'app-cta',
-    imports: [ReactiveFormsModule],
+    imports: [ReactiveFormsModule, FormError],
     templateUrl: './cta.html',
     styleUrl: './cta.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class Cta implements AfterViewInit {
+export class Cta {
     protected readonly form = new FormGroup<EmailForm>({
         email: new FormControl('', {
             validators: [Validators.required, Validators.email],
@@ -35,18 +46,6 @@ export class Cta implements AfterViewInit {
         { initialValue: '' },
     );
     private readonly _http = inject(HttpClient);
-
-    ngAfterViewInit() {
-        this.loadScript('https://eu.altcha.org/js/latest/altcha.min.js', true);
-        this.loadScript(
-            'https://newsletter.storage5.infomaniak.com/mcaptcha/altcha.js',
-        );
-        this.loadScript(
-            'https://newsletter.infomaniak.com/v3/static/webform_index.js?v=1765986324',
-            false,
-            'text/javascript',
-        );
-    }
 
     onSubmit() {
         if (this.form.valid) {
@@ -72,25 +71,12 @@ export class Cta implements AfterViewInit {
                     } else {
                         toast.error("Une erreur s'est produite", {
                             description:
-                                errorMessage || 'Veuillez réessaye plus tard',
+                                errorMessage || 'Veuillez réessayer plus tard',
                         });
                         console.error(err);
                     }
                 },
             });
         }
-    }
-
-    private loadScript(src: string, isModule = false, isJs?: string) {
-        const script = document.createElement('script');
-        script.src = src;
-        if (isModule) {
-            script.type = String(isModule);
-        }
-        if (isJs) {
-            script.type = isJs;
-        }
-        script.defer = true;
-        document.body.appendChild(script);
     }
 }
