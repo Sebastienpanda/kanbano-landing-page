@@ -20,7 +20,7 @@ jobs:
                 uses: docker/login-action@v3
                 with:
                     registry: ghcr.io
-                    username: "sebastienpanda"
+                    username: ${{ github.actor }}
                     password: ${{ secrets.GITHUB_TOKEN }}
 
             -   name: Build and push
@@ -28,4 +28,5 @@ jobs:
                 with:
                     push: true
                     tags: |
-                        ghcr.io/${{ github.repository }}:latest
+                        ghcr.io/sebastienpanda/kanbanolandingpage:latest
+
