@@ -1,0 +1,26 @@
+{
+    "railpackVersion": "0.15.1",
+    "resolvedPackages": {
+        "caddy": {
+            "name": "caddy",
+            "requestedVersion": "latest",
+            "resolvedVersion": "2.10.2",
+            "source": "railpack default"
+        }
+    },
+    "metadata": {
+        "providers": "staticfile"
+    },
+    "detectedProviders": ["staticfile"],
+    "logs": [
+        {
+            "Level": "info",
+            "Msg": "Detected Staticfile"
+        },
+        {
+            "Level": "info",
+            "Msg": "Using root dir: ."
+        }
+    ],
+    "success": true
+}
