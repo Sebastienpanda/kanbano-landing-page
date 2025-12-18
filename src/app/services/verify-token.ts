@@ -8,7 +8,7 @@ export class VerifyToken {
 
     verifyToken(token: string): Observable<{ message: string }> {
         return this._http.post<{ message: string }>(
-            'http://localhost:3000/api/verify-email/verify',
+            'https://api-newsletters.kanbano.fr/api/verify-email/verify',
             {
                 token,
             },
